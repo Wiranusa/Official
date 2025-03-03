@@ -1,0 +1,25 @@
+name: Deploy Redirect Page
+
+on:
+  push:
+    branches:
+      - main  # Ubah jika branch utama Anda berbeda
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create redirect index.html
+        run: |
+          echo '<meta http-equiv="refresh" content="0; URL=Beranda-Utama/index.html">' > index.html
+
+      - name: Commit and push redirect file
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add index.html
+          git commit -m "Add redirect index.html"
+          git push
