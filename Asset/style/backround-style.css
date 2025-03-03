@@ -1,0 +1,26 @@
+.bg {
+    background: linear-gradient(45deg, #6cffc2, #0041a2, #6cffc2);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.bg-1 {
+    background: linear-gradient(45deg, #6cffc281, #0041a283, #6cffc27a);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+@keyframes move-bg {
+  0% {
+    background-position: 0% 50%; /* Posisi awal background */
+  }
+  50% {
+    background-position: 100% 50%; /* Posisi tengah background */
+  }
+  100% {
+    background-position: 0% 50%; /* Kembali ke posisi awal */
+  }
+}
+.bg-50 {
+    color: rgba(255, 255, 255, 0.425);
+}

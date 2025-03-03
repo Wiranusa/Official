@@ -1,0 +1,255 @@
+/* Latar belakang halaman */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 200vh; Tinggi halaman ditingkatkan untuk efek scroll */
+    overflow-x: hidden;
+}
+/* Container untuk partikel dengan z-index rendah */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%; /* Lebar dibuat dua kali layar agar bisa digeser */
+    height: 100vh; /* Pastikan ketinggian penuh viewport */
+    z-index: -2;
+    pointer-events: none;
+    background-image: url('../Gambar/BG/BG-Laut-2.png'); /* Menggunakan path gambar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.1s ease-out;
+}
+.dropdown-content {
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding-left: 20px;
+    transition: max-height 0.3s ease-out;
+}
+.dropdown-content a {
+    padding: 8px;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.dropdown.active + .dropdown-content {
+    max-height: 200px;
+}
+.dropdown.active + .dropdown-content a {
+    opacity: 1;
+}
+
+/* Konten utama */
+.content {
+    margin-top: 9vh;
+    bottom: auto;
+    width: 100%;
+    height: 100%; /* Biarkan tinggi konten menyesuaikan dengan isinya */
+    position: relative;
+    z-index: 1; /* Memastikan konten berada di atas partikel */
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    transition: margin-left 0.3s ease; /* Smooth page shift */
+}
+iframe {
+    margin: 0;
+    padding: 0;
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+.search-input {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 20px 0;
+    box-sizing: border-box; /* Include padding in width */
+}
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98.5%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: linear-gradient(45deg, #6cffc2, #0041a2, #6cffc2);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.top-nav-links {
+    /* margin: 10px; */
+    display: inline-flex;
+}
+.top-nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.top-nav-links a:hover {
+    background-color: #ffffff1f;
+    color: #d4d4d4e0;
+    transform: scale(1.1);
+}
+.logo {
+    min-height: 10px;
+    max-height: 50px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px; /* Tambahkan sedikit jarak antara hamburger dan logo */
+}
+
+.hamburger {
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    background: transparent;
+    color: #fff;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+.hamburger:hover {
+    border-radius: 7px;
+    background: linear-gradient(45deg, #6cffc2, #0041a2, #6cffc2);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    transition: 0.5s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.hamburger span {
+    display: block;
+    width: 35px;
+    height: 4px;
+    background-color: white;
+    margin: 4px 4px;
+    border-radius: 3px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.active span:nth-child(1) {
+    transform: translateY(12px)rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-12px) rotate(-45deg);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0px; /* Start hidden off-screen */
+    height: 100%;
+    width: 250px;
+    background: linear-gradient(45deg, #6cffc28e, #0041a27a, #6cffc29f);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    /* background-color: #535353; */
+    color: #fff;
+    padding: 79px 20px;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 999;
+    overflow-y: auto; /* Ensure scroll if needed */
+}
+
+.sidebar.show {
+    transform: translateX(0); /* Slide in */
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    background-color: #ffffffc9;
+    border-radius: 40px;
+    color: #0041a2;
+    transition: background-color 1s ease, color 0.5s ease;
+}
+.content-with-sidebar {
+    margin-left: 290px; /* Adjust for the sidebar width */
+}
+
+/* Style dasar breadcrumb */
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 10px 15px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  font-family: Arial, sans-serif;
+}
+
+.breadcrumb li {
+  display: inline;
+  font-size: 14px;
+}
+
+.breadcrumb li + li::before {
+  content: "›"; /* Pemisah antar item */
+  padding: 0 10px;
+  color: #ccc;
+}
+
+/* Link breadcrumb */
+.breadcrumb li a {
+  text-decoration: none;
+  color: #3498db;
+  transition: color 0.3s;
+}
+
+.breadcrumb li a:hover {
+  color: #2c3e50;
+}
+
+/* Item aktif (halaman saat ini) */
+.breadcrumb li.active {
+  color: #888;
+}
+
+.copyright {
+    font-family: 'Roboto', sans-serif;
+    font-size: clamp(8px, 1vw, 24px);
+    line-height: 1.2;
+    color: #fff;
+    background-color: #1b54aa;
+    text-align: center;
+    padding: 10px 5%;
+    position: absolute;
+    width: 90%;
+    bottom: 0;
+}

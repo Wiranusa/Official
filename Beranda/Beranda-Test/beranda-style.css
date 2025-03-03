@@ -1,0 +1,206 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+.background {
+    position: fixed; /* Memastikan latar belakang tetap di tempat saat scroll */
+    top: 0;
+    left: 0;
+    width: 200vw; /* Lebar dua kali viewport */
+    height: 200vh; /* Tinggi dua kali viewport */
+    background-image: url('../../Gambar/BG/BG-Laut-Panjang.png');
+    background-size: cover; /* Mengatur gambar untuk menutupi seluruh elemen */
+    background-repeat: no-repeat; /* Mencegah pengulangan gambar */
+    background-position: center; /* Menempatkan gambar di tengah */
+    z-index: -2;
+    transform: translateX(0); /* Inisialisasi posisi horizontal */
+}
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 98.5%;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background: linear-gradient(45deg, #6cffc2, #0041a2, #6cffc2);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    z-index: 1000;
+}
+@keyframes move-bg {
+  0% {
+    background-position: 0% 50%; /* Posisi awal background */
+  }
+  50% {
+    background-position: 100% 50%; /* Posisi tengah background */
+  }
+  100% {
+    background-position: 0% 50%; /* Kembali ke posisi awal */
+  }
+}
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    min-height: 10px;
+    max-height: 50px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px; /* Tambahkan sedikit jarak antara hamburger dan logo */
+}
+
+.top-nav-links {
+    /* margin: 10px; */
+    display: inline-flex;
+}
+.top-nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    transition: color 0.5s ease, transform 0.5s ease;
+}
+
+.top-nav-links a:hover {
+    background-color: #ffffff1f;
+    color: #d4d4d4e0;
+    transform: scale(1.1);
+}
+
+.hamburger {
+    cursor: pointer;
+    margin-left: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    /* background: linear-gradient(45deg, #6cffc2, #0041a2, #6cffc2); */
+    /* background-size: 300% 300%; */
+    /* animation: move-bg 6s linear infinite; */
+    /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); */
+    background: transparent;
+    color: #fff;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* transition: background-color 0.3s ease; */
+}
+
+.hamburger.active {
+    /* background: linear-gradient(45deg, #6cffc2, #0041a2, #6cffc2); */
+}
+
+.bar {
+    width:40px;
+    height: 3px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .bar:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 12.5px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+    width: 20px;
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -12.5px);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0px; /* Start hidden off-screen */
+    height: 100%;
+    width: 250px;
+    background: linear-gradient(45deg, #6cffc28e, #0041a27a, #6cffc29f);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    /* background-color: #535353; */
+    color: #fff;
+    padding: 79px 20px;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+    z-index: 999;
+    overflow-y: auto; /* Ensure scroll if needed */
+}
+
+.sidebar.show {
+    transform: translateX(0); /* Slide in */
+}
+
+.sidebar a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.sidebar a:hover {
+    background-color: #0068c9;
+    border-radius: 10px;
+}
+
+.search-input {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px 0;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+.content {
+    /* padding: 50px; */
+    margin-top: 12vh;
+    transition: margin-left 0.3s ease; /* Smooth page shift */
+}
+
+.content-with-sidebar {
+    margin-left: 290px; /* Adjust for the sidebar width */
+}
+
+
+.header {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+/* Slideshow START--------------------- */
+
+/* Slideshow END ---------------------- */

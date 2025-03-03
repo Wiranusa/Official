@@ -1,0 +1,27 @@
+::-webkit-scrollbar {
+    width: 10px; /* Lebar scrollbar diperbesar */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(145, 145, 145, 0.185); /* Membuat track scrollbar transparan */
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6cffc2, #0041a2, #6cffc2);
+    background-size: 300% 300%;
+    animation: move-bg 6s linear infinite;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-radius: 10px; /* Membuat sudutnya membulat */
+    border: 3px solid rgba(0, 0, 0, 0.1); /* Memberikan padding dengan sedikit transparansi */
+}
+@keyframes move-bg {
+  0% {
+    background-position: 0% 50%; /* Posisi awal background */
+  }
+  50% {
+    background-position: 100% 50%; /* Posisi tengah background */
+  }
+  100% {
+    background-position: 0% 50%; /* Kembali ke posisi awal */
+  }
+}

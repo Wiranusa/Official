@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi dan Misi</title>
+    <style>
+        /* Menggunakan Google Fonts untuk font modern */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        
+        html, body {
+          font-family: 'Roboto', sans-serif; /* Font modern */
+          margin: 0;
+          padding: 0;
+          overflow: hidden; /* Ini mencegah scroll di seluruh halaman */
+        }
+
+        .visi-misi {
+            text-align: center;
+            margin: 80px auto;
+            width: 80%;
+        }
+
+        .visi-misi h1 {
+            font-size: 36px;
+            color: #0041a2;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Container untuk visi dan misi */
+        .visi-misi-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .visi, .misi {
+            flex: 1 1 300px;
+            max-width: 400px;
+            padding: 30px;
+            background-color: #e8f4fc;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            border-top: 5px solid #0041a2; /* Warna border top sesuai tema */
+        }
+
+        .visi.show, .misi.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .visi:hover, .misi:hover {
+            transform: scale(1.05);
+            background: #bae3ff; /* Warna background saat di-hover */
+            color: #333;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .visi h2, .misi h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0041a2;
+            padding-bottom: 10px;
+            text-align: center;
+            color: #0041a2;
+        }
+
+        .visi p, .misi ul {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            text-align: left;
+            margin: 0;
+        }
+
+        .misi ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .misi ul li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .visi-misi-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .visi, .misi {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Container untuk visi dan misi -->
+    <div class="visi-misi">
+        <h1>VISI DAN MISI</h1>
+        <div class="visi-misi-container">
+            <div class="visi">
+                <h2>VISI</h2>
+                <p>Menjadi koperasi yang berdaya saing dan memberdayakan potensi anggota melalui kolaborasi aktif, inovasi, dan pengembangan ekonomi berkelanjutan.</p>
+            </div>
+            <div class="misi">
+                <h2>MISI</h2>
+                <ul>
+                    <li>Membangun tim yang disiplin dalam merancang strategi efektif untuk menjalankan usaha koperasi.</li>
+                    <li>Membangun jaringan yang luas untuk mengembangkan objek perdagangan potensial.</li>
+                    <li>Menerapkan inovasi dan kecerdasan anggota dalam operasional koperasi.</li>
+                    <li>Meningkatkan keterampilan berwirausaha dan manajemen keuangan anggota.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Fungsi untuk menambahkan animasi saat elemen muncul di viewport
+        function animateOnScroll() {
+            const items = document.querySelectorAll('.visi, .misi');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('show'); // Menambahkan kelas 'show' saat elemen terlihat
+                        }, index * 200); // Menambahkan jeda 200ms untuk setiap elemen
+                    } else {
+                        entry.target.classList.remove('show'); // Menghapus kelas 'show' saat elemen keluar
+                    }
+                });
+            }, { threshold: 0.2 }); // Memulai animasi ketika 20% dari elemen terlihat
+
+            items.forEach(item => {
+                observer.observe(item); // Mengamati setiap elemen visi dan misi
+            });
+        }
+
+        // Panggil fungsi animasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+    </script>
+
+</body>
+</html> 

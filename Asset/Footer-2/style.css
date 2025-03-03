@@ -1,0 +1,194 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+/* Footer START ----------------- */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+/* --------------- Footer ---------------- */
+
+footer {
+  background: linear-gradient(to bottom, #6cffc2, #0041a2);
+  color: #fff;
+  /* padding: 20px 0; */
+  text-align: center;
+  /* border-top-left-radius: 50px; */
+  /* border-top-right-radius: 50px; */
+  
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer-about,
+.footer-contact,
+.footer-social,
+.footer-map {
+  flex: 1 1 300px;
+  margin: 10px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.social-icons a:hover {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transform: translateY(-10px);
+  transition: 0.5s;
+}
+.social-icons a {
+  margin: 10px;
+  padding: 20px;
+}
+
+.footer-about h3,
+.footer-contact h3,
+.footer-social h3,
+.footer-map h3 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.footer-contact p,
+.footer-social a {
+  margin: 5px 0;
+}
+
+.footer-social a img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+
+.footer-map iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  
+}
+
+/* ---------------- Start Comment Menu ----------------- */
+.footer-comments {
+  flex: 1;
+  max-width: 280px;
+  margin: 10px auto;
+  background: linear-gradient(to top right, rgb(0, 42, 158), rgb(108, 255, 194));
+  margin-top: 100px;
+  margin-bottom: 100px;
+  padding: 50px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.footer-comments form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-comments textarea {
+  width: 300px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.footer-comments button {
+  width: 100px;
+  padding: 10px;
+  background-color:  rgb(2, 69, 255);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin: auto;
+  border-radius: 7px;
+}
+
+.footer-comments button:hover {
+  background-color: #fff;
+  color: rgb(2, 69, 255);
+  transition: 0.5s ease, width 0.5s ease-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#comment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#comment-list li {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#message-container {
+  margin-top: 10px;
+  padding: 10px;
+  border: 5px solid #ccc;
+  border-radius: 5px;
+}
+
+#comment-form {
+  margin-bottom: 20px;
+}
+
+#comment-input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#comment-list {
+  list-style-type: none;
+  padding: 0;
+  
+}
+
+.comment-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.comment-text {
+  font-weight: bold;
+}
+
+.comment-timestamp {
+  color: #888;
+  font-size: 0.8em;
+}
+
+#popup-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #00ff95;
+  color: #ff1313;
+  padding: 15px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: 7;
+}
+
+#popup-notification.show {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+/* ---------------- End Comment Menu ----------------- */
+/* --------------- Footer ---------------- */

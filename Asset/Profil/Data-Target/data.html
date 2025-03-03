@@ -1,0 +1,92 @@
+<div class="member">
+    <div class="number-member">
+        <div class="counter" data-target="300">0</div>
+        <h3>Pengawas</h3>
+    </div>
+    <div class="number-member">
+        <div class="counter" data-target="300">0</div>
+        <h3>Pengurus</h3>
+    </div>
+    <div class="number-member">
+        <div class="counter" data-target="5700">0</div><p></p>
+        <h3>Total Anggota</h3>
+    </div>
+    <script src="Asset/data-target.js"></script>
+</div>
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.member {
+  background: linear-gradient(to right, #0041a2, #6cffc2);
+  height: auto;
+  width: 90%;
+  padding: 100px 0px;
+  border-top-right-radius: 500px;
+  border-bottom-right-radius: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  left: 0;
+  margin-bottom: 100px;
+}
+.number-member {
+  min-width: 300px;
+  max-width: 500px;
+  height: 100px;
+  margin: auto;
+  border-radius: 100px;
+  top: 0;
+  color: #fff;
+  padding: 20px;
+}
+
+.counter {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 20px;
+  color: #ffffff;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+
+    const updateCount = (element) => {
+        const target = +element.getAttribute('data-target');
+        let count = 0;
+        const interval = setInterval(() => {
+            if (count >= target) {
+                clearInterval(interval);
+                element.textContent = target;
+            } else {
+                count += Math.ceil(target / 100); // Adjust the increment value for faster or slower animation
+                element.textContent = count;
+            }
+        }, 30); // Adjust the interval time for animation speed
+    };
+
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                updateCount(element);
+                observer.unobserve(element);
+            }
+        });
+    }, options);
+
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+});
+</script>

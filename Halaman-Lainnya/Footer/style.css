@@ -1,0 +1,166 @@
+html, body {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-block: hidden;
+  /* background-color: #0041a2; */
+}
+/* ----------------- Footer Waves Start ----------- */
+.wav {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  /* padding: 10px 50px; */
+  display: flex;
+  justify-content: center;
+  /* padding-top: 100px; */
+  /* background: #3586ff;  */
+}
+
+.wave{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(../../Gambar/waves.png); 
+  background-size: 1000px 100px;
+}
+.wave#wave1 {
+  z-index: 1;
+  /* opacity: 1; */
+  bottom: 0;
+  animation: animateWave1 4s linear infinite;
+
+}
+
+.wave#wave2 {
+  z-index: 1;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave2 4s linear infinite;
+
+}
+.wave#wave3 {
+  z-index: 1;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWave3 3s linear infinite;
+
+}
+.wave#wave4 {
+  z-index: 1;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave4 3s linear infinite;
+
+}
+@keyframes animateWave1  {
+  0%{
+    background-position-x: 1000px;
+  }
+  100%{
+    background-position-x: 0px;
+  }
+}
+
+@keyframes animateWave2  {
+  0%{
+    background-position-x: 0px;
+  }
+  100%{
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes animateWave3  {
+  0%{
+    background-position-x: 1000px;
+  }
+  100%{
+    background-position-x: 0px;
+  }
+}
+
+@keyframes animateWave4  {
+  0%{
+    background-position-x: 1000px;
+  }
+  100%{
+    background-position-x: 0px;
+  }
+}
+/* ----------------- Footer Waves END ----------- */
+
+/* --------------- Footer ---------------- */
+
+footer {
+  position: relative;
+  background: linear-gradient(to bottom, #6cffc2, #0041a2);
+  color: #3b3b3b;
+  text-align: center;
+  z-index: 2;
+  font-family: 'Roboto', sans-serif;
+  font-size: clamp(8px, 1vw, 24px);
+  line-height: 1.2;
+  
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.footer-about,
+.footer-contact,
+.footer-social,
+.footer-map {
+  flex: 1 1 300px;
+  margin: 10px;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 60px;
+}
+
+.social-icons a:hover {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transform: translateY(-10px);
+  transition: 0.5s;
+}
+.social-icons a {
+  margin: 10px;
+  padding: 20px;
+}
+
+.footer-about h3,
+.footer-contact h3,
+.footer-social h3,
+.footer-map h3 {
+  border-bottom: 1px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  text-decoration: none;
+}
+
+.footer-contact p,
+.footer-social a {
+  margin: 5px 0;
+}
+
+.footer-social a img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ocean Background Scroll Effect</title>
+    <style>
+        /* Container untuk partikel dengan z-index rendah */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200%; /* Lebar dibuat dua kali layar agar bisa digeser */
+            height: 100vh; /* Pastikan ketinggian penuh viewport */
+            z-index: -2;
+            pointer-events: none;
+            background-image: url('../Gambar/BG/BG-Laut.jpg'); /* Menggunakan path gambar */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Konten utama */
+        .content {
+            position: relative;
+            z-index: 1; /* Memastikan konten berada di atas partikel */
+            color: white;
+            font-size: 2em;
+            text-align: center;
+            padding-top: 50px;
+            height: auto; /* Biarkan tinggi konten menyesuaikan dengan isinya */
+        }
+
+        /* Latar belakang halaman */
+        body {
+            margin: 0;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200vh; /* Tinggi halaman ditingkatkan untuk efek scroll */
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    Welcome to the Ocean Background Demo
+</div>
+
+<div class="particles-container">
+    <canvas id="particles"></canvas>
+</div>
+
+<script>
+    // Mendapatkan elemen canvas dan konteks 2D
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    const particlesContainer = document.querySelector('.particles-container');
+
+    // Fungsi untuk mengatur ukuran canvas agar sesuai dengan tinggi viewport
+    function resizeCanvas() {
+        canvas.width = window.innerWidth * 2; // Lebar dua kali layar untuk geser horizontal
+        canvas.height = window.innerHeight;
+    }
+
+    // Inisialisasi canvas ukuran penuh
+    resizeCanvas();
+
+    // Array untuk partikel dan jumlah partikel
+    let particlesArray = [];
+    const numberOfParticles = 300;
+
+    // Kelas Partikel untuk membuat partikel dengan posisi, ukuran, dan kecepatan acak
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+        }
+
+        // Perbarui posisi partikel
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Jika partikel bergerak keluar dari layar, reset posisinya
+            if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+            }
+        }
+
+        // Gambar partikel di canvas
+        draw() {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.closePath();
+            ctx.fill();
+        }
+    }
+
+    // Inisialisasi partikel
+    function initParticles() {
+        particlesArray = [];
+        for (let i = 0; i < numberOfParticles; i++) {
+            particlesArray.push(new Particle());
+        }
+    }
+
+    // Menghandle gerakan dan gambar partikel
+    function handleParticles() {
+        for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+        }
+    }
+
+    // Fungsi animasi partikel
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        handleParticles();
+        requestAnimationFrame(animateParticles);
+    }
+
+    // Inisialisasi dan mulai animasi
+    initParticles();
+    animateParticles();
+
+    // Update ukuran canvas saat window diresize
+    window.addEventListener('resize', resizeCanvas);
+
+    // Fungsi untuk menggeser latar belakang partikel berdasarkan scroll
+    window.addEventListener('scroll', () => {
+        const scrollPercentage = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        particlesContainer.style.transform = `translateX(-${scrollPercentage * 50}%)`;
+    });
+</script>
+
+</body>
+</html>

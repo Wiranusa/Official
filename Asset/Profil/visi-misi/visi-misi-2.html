@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visi & Misi</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Container Styling */
+        .container {
+            display: flex;
+            flex-direction: column; /* Change to column for responsive layout */
+            padding: 50px 0;
+            margin: auto;
+            max-width: 1400px;
+            overflow: hidden; /* Menyembunyikan overflow pada container */
+        }
+
+        /* Title Styling */
+        .title {
+            text-align: center; /* Center the title */
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px; /* Add margin below title */
+        }
+
+        /* Content Container */
+        .content-container {
+            display: flex;
+            justify-content: flex-end; /* Align left and right columns */
+            width: 100%; /* Ensure full width */
+            margin-top: 20px; /* Margin above content */
+        }
+
+        /* Left Column for Misi */
+        .left-column {
+            width: 45%; /* Width for Misi */
+            margin: 20px 0;
+            background: #e6eaff; /* Light blue background */
+            border-radius: 25px; /* Larger border-radius */
+            overflow: hidden; /* Ensure content stays within border */
+            padding: 20px; /* Add padding for better spacing */
+            box-sizing: border-box; /* Ensure padding and border included in width */
+        }
+
+        /* Right Column for Visi */
+        .right-column {
+            width: 40%; /* Width for Visi */
+            margin: 70px 0; /* Remove margin for alignment */
+            background: #fff2e6; /* Light orange background */
+            border-radius: 0; /* No border-radius */
+            padding: 20px; /* Add padding for better spacing */
+            box-sizing: border-box; /* Ensure padding and border included in width */
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #3c3c3c;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Accordion Styling */
+        .accordion-item {
+            background: #ffffff;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-sizing: border-box; /* Ensure padding and border included in width */
+        }
+
+        .accordion-item.active {
+            border-color: #4b6ef5;
+        }
+
+        .accordion-item .accordion-title {
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #4b6ef5; /* Dark blue background */
+            color: #ffffff; /* White text */
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-item .accordion-title:hover {
+            background-color: #3c5ec9; /* Darker blue on hover */
+        }
+
+        .accordion-item .accordion-title i {
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        /* Accordion Content */
+        .accordion-item .accordion-content {
+            max-height: 0; /* Set initial height to 0 */
+            padding: 0 20px; /* Initial padding */
+            overflow: hidden; /* Ensure no content is visible */
+            transition: max-height 0.5s ease, padding 0.5s ease; /* Smooth transition */
+            background: #f9f9f9;
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* When Accordion Item is Active */
+        .accordion-item.active .accordion-content {
+            max-height: 200px; /* Set max-height to a value large enough to fit content */
+            padding: 15px 20px; /* Add padding when expanded */
+        }
+
+        /* Right Column Content */
+        .right-column .content {
+            font-size: 24px;
+            line-height: 1.6;
+        }
+
+        /* Styling untuk ikon toggle */
+        .toggle-icon {
+            display: inline-block;
+            width: 30px; /* Lebar tombol */
+            height: 30px; /* Tinggi tombol */
+            background-color: white; /* Warna latar belakang putih */
+            border-radius: 50%; /* Membuat tombol bulat */
+            text-align: center; /* Memusatkan teks di dalam tombol */
+            line-height: 30px; /* Mengatur tinggi baris agar teks berada di tengah */
+            color: #4b6ef5; /* Warna teks tombol */
+            font-weight: bold; /* Menebalkan teks */
+            transition: background 0.3s ease; /* Efek transisi saat hover */
+            margin-left: 10px; /* Tambahkan jarak antara teks dan ikon */
+        }
+
+        /* Efek saat hover pada tombol */
+        .toggle-icon:hover {
+            background-color: #e6eaff; /* Mengubah warna latar belakang saat hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column; /* Stack columns vertically */
+                width: 100%; /* Full width */
+            }
+            .left-column, .right-column {
+                width: 100%; /* Full width for each column */
+                margin: 0; /* Remove margin */
+                border-radius: 0; /* Remove border radius */
+            }
+            .right-column {
+                background: none; /* Remove background for vision section */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">Visi dan Misi</div>
+        <!-- Content Container -->
+        <div class="content-container">
+            <!-- Misi Section on the Left (Accordion Style) -->
+            <div class="left-column">
+                <h2 class="section-title">Misi</h2>
+                <div class="accordion">
+                    <div class="accordion-item active"> <!-- Set item pertama sebagai active -->
+                        <div class="accordion-title">
+                            <span>Strategi Efektif</span>
+                            <i class="toggle-icon">−</i> <!-- Set ikon minus karena item dibuka -->
+                        </div>
+                        <div class="accordion-content">
+                            <p style="padding: 10px;">Membangun tim yang disiplin dalam merancang strategi efektif untuk menjalankan usaha koperasi.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-title">
+                            <span>Jaringan</span>
+                            <i class="toggle-icon">+</i>
+                        </div>
+                        <div class="accordion-content">
+                            <p style="padding: 10px;">Membangun jaringan yang luas untuk mengembangkan objek perdagangan potensial.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-title">
+                            <span>Inovasi</span>
+                            <i class="toggle-icon">+</i>
+                        </div>
+                        <div class="accordion-content">
+                            <p style="padding: 10px;">Menerapkan inovasi dan kecerdasan anggota dalam operasional koperasi.</p>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-title">
+                            <span>Keterampilan Bisnis</span>
+                            <i class="toggle-icon">+</i>
+                        </div>
+                        <div class="accordion-content">
+                            <p style="padding: 10px;">Meningkatkan keterampilan berwirausaha dan manajemen keuangan anggota.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visi Section on the Right -->
+            <div class="right-column">
+                <h2 class="section-title">Visi</h2>
+                <div class="content">
+                    <p style="padding: 10px;">Menjadi koperasi yang berdaya saing dan memberdayakan potensi anggota melalui kolaborasi aktif, inovasi, dan pengembangan ekonomi berkelanjutan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Accordion Functionality -->
+    <script>
+        // Select all accordion items
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        accordionItems.forEach(item => {
+            const accordionTitle = item.querySelector('.accordion-title');
+            const icon = accordionTitle.querySelector('.toggle-icon');
+
+            // Add click event to toggle the content
+            accordionTitle.addEventListener('click', () => {
+                // Check if the clicked item is already active
+                const isActive = item.classList.contains('active');
+
+                // Close all items first
+                accordionItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.accordion-content').style.maxHeight = null; // Reset max-height
+                    i.querySelector('.toggle-icon').textContent = '+'; // Change icon back to plus
+                });
+
+                // If it was not active, activate it
+                if (!isActive) {
+                    item.classList.add('active');
+                    const content = item.querySelector('.accordion-content');
+                    content.style.maxHeight = content.scrollHeight + "px"; // Set max-height to scroll height
+                    icon.textContent = '−'; // Change icon to minus
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

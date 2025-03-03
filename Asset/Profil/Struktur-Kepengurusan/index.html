@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Pendiri Koperasi</title>
+    <style>
+        /* Menggunakan Google Fonts untuk font modern */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif; /* Font modern */
+            margin: 0;
+            padding: 20px;
+            /* background-color: #f9f9f9; */
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .item {
+            flex: 1 1 200px;
+            max-width: 250px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #e8f4fc;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            border-top: 5px solid #0041a2; /* Border top with dark blue color */
+        }
+
+        .item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hover effect */
+        .item:hover {
+            transform: scale(1.05); /* Slightly enlarges the item */
+            background: #bae3ff; /* Light gray to light blue gradient */
+            color: #333; /* Keeps text color dark */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adds a larger shadow */
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease; /* Smooth transition for image */
+        }
+
+        /* Adding zoom effect to image on hover */
+        .item:hover .profile-img {
+            transform: scale(1.1); /* Zooms in the profile image */
+        }
+
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            transition: color 0.3s ease; /* Smooth transition for text color */
+        }
+
+        .description {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #666;
+            transition: color 0.3s ease; /* Smooth transition for text color */
+        }
+
+        /* Keeps text color unchanged on hover */
+        .item:hover .name, .item:hover .description {
+            color: #333; /* Keeps text color dark */
+        }
+
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .social-media a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #0073b1;
+            padding: 10px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for social media icons */
+        }
+
+        .social-media a.twitter {
+            background-color: #1da1f2;
+        }
+
+        .social-media a.instagram {
+            background-color: #e4405f;
+        }
+
+        /* Adding hover effects to social media icons */
+        .social-media a:hover {
+            transform: scale(1.2); /* Enlarges social media icons */
+            background-color: #fff; /* Changes icon background to white */
+            color: #0073b1; /* Changes icon color to blue */
+        }
+
+        @media (max-width: 600px) {
+            .item {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2>Dewan Penasihat</h2>
+<div class="container">
+    <div class="item">
+        <img src="../../../Gambar/BG/avatar.jpg" alt="Dewan Penasihat 1" class="profile-img">
+        <div class="name">Arie Antasari Kushadiwijayanto</div>
+        <div class="description">Lahir di Jombang, sebagai Pegawai Negeri Sipil memiliki karir sebagai Ketua Jurusan Ilmu Kelautan di Universitas Tanjungpura Pontianak Tahun 2022-2024</div>
+        <div class="social-media">
+            <a href="#" class="linkedin">in</a>
+            <a href="#" class="twitter">T</a>
+            <a href="#" class="instagram">I</a>
+        </div>
+    </div>
+    <div class="item">
+        <img src="../../../Gambar/BG/avatar.jpg" alt="Dewan Penasihat 2" class="profile-img">
+        <div class="name">Warsidah</div>
+        <div class="description">Lahir di Kalumpang sebagai Pegawai Negri Sipil memiliki karir sebagai Dosen Jurusan Ilmu Kelautan Untan, memiliki peran sebagai Dewan Pengawas, dan memiliki pengalaman dibidang Apoteker.</div>
+        <div class="social-media">
+            <a href="#" class="linkedin">in</a>
+            <a href="#" class="twitter">T</a>
+            <a href="#" class="instagram">I</a>
+        </div>
+    </div>
+    <div class="item">
+        <img src="../../../Gambar/BG/avatar.jpg" alt="Dewan Penasihat 3" class="profile-img">
+        <div class="name">Usep Gunawan</div>
+        <div class="description">Lahir di Sambas, telah lulus kuliah di Jurusan Ilmu Kelautan FMIPA Universitas Tanjungpura Pontianak</div>
+        <div class="social-media">
+            <a href="#" class="linkedin">in</a>
+            <a href="#" class="twitter">T</a>
+            <a href="#" class="instagram">I</a>
+        </div>
+    </div>
+</div>
+
+<h2>Dewan Pengurus</h2>
+<div class="container">
+    <div class="item">
+        <img src="../../../Gambar/BG/avatar.jpg" alt="Dewan Pengurus 1" class="profile-img">
+        <div class="name">Rizky Hertadi</div>
+        <div class="description">lahir di sambas, kuliah di jurusan Ilmu Kelautan FMIPA Univeritas Tanjungpura</div>
+        <div class="social-media">
+            <a href="#" class="linkedin">in</a>
+            <a href="#" class="twitter">T</a>
+            <a href="#" class="instagram">I</a>
+        </div>
+    </div>
+    <div class="item">
+        <img src="../../../Gambar/BG/avatar.jpg" alt="Dewan Pengurus 2" class="profile-img">
+        <div class="name">Delvia Devi Mardini</div>
+        <div class="description">Lahir di Batang Tarang, telah lulus kuliah di Jurusan Ilmu Kelautan FMIPA Universitas Tanjungpura Pontianak</div>
+        <div class="social-media">
+            <a href="#" class="linkedin">in</a>
+            <a href="#" class="twitter">T</a>
+            <a href="#" class="instagram">I</a>
+        </div>
+    </div>
+    <div class="item">
+        <img src="../../../Gambar/BG/avatar.jpg" alt="Dewan Pengurus 3" class="profile-img">
+        <div class="name">Layla Shinta Ramajenny</div>
+        <div class="description">Lahir di Pontianak, kuliah di jurusan Ilmu Kelautan FMIPA Univeritas Tanjungpura </div>
+        <div class="social-media">
+            <a href="#" class="linkedin">in</a>
+            <a href="#" class="twitter">T</a>
+            <a href="#" class="instagram">I</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Fungsi untuk menjalankan animasi saat elemen terlihat di viewport dan menghilang saat tidak terlihat
+    function animateOnScroll() {
+        const items = document.querySelectorAll('.item');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show'); // Menambahkan kelas 'show' jika elemen terlihat
+                    }, index * 200); // Menambahkan jeda 200ms antara tiap elemen
+                } else {
+                    entry.target.classList.remove('show'); // Menghapus kelas 'show' jika elemen keluar dari viewport
+                }
+            });
+        }, { threshold: 0.2 }); // Memulai animasi ketika 20% dari elemen terlihat
+
+        items.forEach(item => {
+            observer.observe(item); // Mengamati setiap item
+        });
+    }
+
+    // Memanggil fungsi animasi saat halaman dimuat
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+</script>
+
+</body>
+</html>
