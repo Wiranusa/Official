@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://koperasiwiranusa.site/sitemap.xml
 Sitemap: https://koperasiwiranusa.site/sitemap-images.xml
