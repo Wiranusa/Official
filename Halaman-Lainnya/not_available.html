@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Fitur Ini Belum Tersedia!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #f0f2f5;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      background: #fff;
+      padding: 2em;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 0.5em;
+    }
+    p {
+      color: #666;
+      margin: 0.5em 0;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .counter {
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  </style>
+  <script>
+    // Mulai countdown dari 10 detik
+    let seconds = 10;
+    function updateCountdown() {
+      document.getElementById('counter').innerText = seconds;
+      if(seconds === 0) {
+        // Setelah countdown selesai, kembali ke halaman sebelumnya
+        window.history.back();
+      } else {
+        seconds--;
+        setTimeout(updateCountdown, 1000);
+      }
+    }
+    window.onload = updateCountdown;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Fitur Ini Belum Tersedia!</h1>
+    <p>Halaman ini akan kembali ke halaman sebelumnya dalam <span class="counter" id="counter">10</span> detik.</p>
+    <p>Jika tidak, silakan klik <a href="javascript:window.history.back();">di sini</a>.</p>
+  </div>
+</body>
+</html>
